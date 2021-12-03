@@ -106,6 +106,7 @@ public class CPPTokenizer extends JavaCCTokenizer {
 
         return new TokenEntry(image, fileName, currentToken.getBeginLine(), currentToken.getBeginColumn(), currentToken.getEndColumn());
     }
+    
     @Override
     protected TokenFilter getTokenFilter(final TokenManager tokenManager) {
         return new CppTokenFilter(tokenManager, ignoreLiteralSequences);
