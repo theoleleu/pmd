@@ -87,7 +87,7 @@ public class CPPTokenizer extends JavaCCTokenizer {
             throw new RuntimeException(e);
         }
     }
-    
+
     @Override
     protected TokenEntry processToken(Tokens tokenEntries, GenericToken currentToken, String fileName) {
         String image = currentToken.getImage();
@@ -106,7 +106,7 @@ public class CPPTokenizer extends JavaCCTokenizer {
 
         return new TokenEntry(image, fileName, currentToken.getBeginLine(), currentToken.getBeginColumn(), currentToken.getEndColumn());
     }
-    
+
     @Override
     protected TokenFilter getTokenFilter(final TokenManager tokenManager) {
         return new CppTokenFilter(tokenManager, ignoreLiteralSequences);
