@@ -92,6 +92,11 @@ public class CPPTokenizer extends JavaCCTokenizer {
     protected TokenFilter getTokenFilter(final TokenManager tokenManager) {
         return new CppTokenFilter(tokenManager, ignoreLiteralSequences);
     }
+    
+    @Override
+    protected TokenEntry processToken(Tokens tokenEntries, GenericToken currentToken, String fileName) {
+        return new TokenEntry(currentToken.getImage(), "variable", currentToken.getBeginLine(), currentToken.getBeginColumn(), currentToken.getEndColumn());
+    }
 
     private static class CppTokenFilter extends JavaCCTokenFilter {
         private final boolean ignoreLiteralSequences;
